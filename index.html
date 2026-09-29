@@ -209,6 +209,9 @@ h1{font-family:'Dancing Script','Fraunces',cursive;font-weight:600;font-size:cla
 .card:has(.quote){max-width:600px;padding:26px 24px}
 .slide:nth-child(13){background:radial-gradient(circle at 50% 0%,var(--p2),transparent 55%),var(--p4)}
 .slide:nth-child(17){background:radial-gradient(circle at 50% 0%,var(--p1),transparent 55%),var(--p5)}
+/* music mute button */
+.snd{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:12px;z-index:5;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-size:18px;line-height:1;cursor:pointer;padding:0;font-family:inherit}
+.snd:focus-visible{outline:3px solid var(--heart);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -257,6 +260,10 @@ h1{font-family:'Dancing Script','Fraunces',cursive;font-weight:600;font-size:cla
   <div class="dots" id="dots"></div>
   <button id="next" aria-label="Next slide">&#8594;</button>
 </nav>
+
+<!-- background music: keep music.mp3 in the same folder as index.html -->
+<audio id="bgm" src="music.mp3" loop preload="auto"></audio>
+<button class="snd" id="snd" aria-label="Mute music" title="Music on/off">&#128266;</button>
 
 <script>
 (function(){
@@ -330,9 +337,28 @@ h1{font-family:'Dancing Script','Fraunces',cursive;font-weight:600;font-size:cla
 <script>
 (function(){
   var env=document.getElementById('env'),rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var bgm=document.getElementById('bgm'),snd=document.getElementById('snd'),TARGET=.5;
+  function startMusic(){
+    try{
+      bgm.volume=0;
+      var pr=bgm.play();
+      if(pr&&pr.catch)pr.catch(function(){});
+      var v=0,t=setInterval(function(){
+        v=Math.min(TARGET,v+.02);bgm.volume=v;
+        if(v>=TARGET)clearInterval(t);
+      },120);
+    }catch(err){}
+  }
+  snd.addEventListener('click',function(){
+    if(bgm.paused&&!bgm.muted){startMusic();return}
+    bgm.muted=!bgm.muted;
+    snd.innerHTML=bgm.muted?'&#128263;':'&#128266;';
+    snd.setAttribute('aria-label',bgm.muted?'Unmute music':'Mute music');
+  });
   function open(){
     if(!env||env.classList.contains('open'))return;
     env.classList.add('open');
+    startMusic();
     setTimeout(function(){
       env.classList.add('gone');
       var s=document.querySelector('.slide');
