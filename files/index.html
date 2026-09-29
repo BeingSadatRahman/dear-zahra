@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A Letter of Apology</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400&family=Caveat:wght@600&family=Dancing+Script:wght@600&family=Nunito:wght@400;600&display=swap">
+<style>
+:root{--ink:#4a3550;--soft:#7d6784;--card:rgba(255,255,255,.72);--line:rgba(74,53,80,.12);--heart:#f28aa5;
+--p1:#fde4ea;--p2:#e8defa;--p3:#dcf3e7;--p4:#fff2c6;--p5:#ffdccb;--bg:#fff8f6;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#f6e9f3;--soft:#cdb6d2;--card:rgba(255,255,255,.08);--line:rgba(255,255,255,.14);--heart:#f79ab4;
+--p1:#4a2b3a;--p2:#392f52;--p3:#26443b;--p4:#4d4529;--p5:#523529;--bg:#2a2030}}
+:root[data-theme="dark"]{--ink:#f6e9f3;--soft:#cdb6d2;--card:rgba(255,255,255,.08);--line:rgba(255,255,255,.14);--heart:#f79ab4;
+--p1:#4a2b3a;--p2:#392f52;--p3:#26443b;--p4:#4d4529;--p5:#523529;--bg:#2a2030}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--ink);font-family:'Nunito',system-ui,sans-serif;overflow:hidden}
+.deck{position:relative;height:100%}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:28px 24px 84px;text-align:center;opacity:0;visibility:hidden;transition:opacity .5s,visibility .5s;overflow-y:auto}
+.slide.on{opacity:1;visibility:visible}
+.slide:nth-child(1){background:radial-gradient(circle at 20% 15%,var(--p2),transparent 55%),var(--p1)}
+.slide:nth-child(2){background:radial-gradient(circle at 85% 10%,var(--p1),transparent 50%),var(--p2)}
+.slide:nth-child(3){background:radial-gradient(circle at 15% 90%,var(--p4),transparent 50%),var(--p3)}
+.slide:nth-child(4){background:radial-gradient(circle at 80% 85%,var(--p5),transparent 50%),var(--p4)}
+.slide:nth-child(5){background:radial-gradient(circle at 50% 10%,var(--p2),transparent 55%),var(--p5)}
+h1,h2{font-family:'Fraunces',Georgia,serif;font-weight:500;margin:0 0 14px;line-height:1.12}
+h1{font-size:clamp(46px,9vw,84px)}
+h2{font-size:clamp(30px,5vw,46px)}
+p{margin:0;line-height:1.65;font-size:clamp(16px,2.2vw,20px);max-width:34em;color:var(--soft)}
+.note{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:clamp(18px,2.6vw,24px);color:var(--ink)}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:28px;padding:26px 28px;max-width:560px;width:100%;box-sizing:border-box;backdrop-filter:blur(6px)}
+.card p{color:var(--ink)}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;max-width:760px;width:100%;margin-top:18px}
+.row .card{padding:22px 18px;border-radius:24px}
+.row .card:nth-child(2){border-radius:24px 24px 24px 8px}
+.row .card:nth-child(3){border-radius:8px 24px 24px 24px}
+.row h3{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:20px;margin:8px 0 6px}
+.row p{font-size:15px;color:var(--soft)}
+svg.i{width:1em;height:1em;fill:var(--heart);vertical-align:-.12em}
+.big{font-size:56px;display:block;margin-bottom:10px}
+.dec{position:absolute;pointer-events:none;fill:var(--heart);opacity:.55}
+.sp{fill:#f7c948;opacity:.7}
+.lv{fill:#b9a2e6;opacity:.6}
+.mt{fill:#8fd3b0;opacity:.7}
+@media (prefers-reduced-motion:no-preference){.pulse{animation:pulse 2.6s ease-in-out infinite}}
+@keyframes pulse{50%{transform:scale(1.12)}}
+.toons{display:flex;align-items:flex-end;justify-content:center;gap:10px;margin-bottom:14px}
+.toon{width:clamp(96px,22vw,150px);height:auto;display:block}
+.toon.heart{width:clamp(50px,11vw,76px);margin-bottom:24px}
+.toon.sm{width:64px;margin:0 auto 4px}
+.row.two{max-width:600px}
+@media (prefers-reduced-motion:no-preference){.bob{animation:bob 3s ease-in-out infinite}.bob.d{animation-delay:-1.5s}}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.slide{justify-content:safe center}
+.note{font-family:'Caveat','Fraunces',cursive;font-style:normal;font-size:clamp(24px,3.4vw,32px)}
+.row.four{grid-template-columns:repeat(2,1fr);max-width:640px;gap:12px}
+.row .card{transform:rotate(-1.2deg)}
+.row .card:nth-child(even){transform:rotate(1.2deg)}
+.row.four .card{padding:14px 12px}
+.row.four .toon.sm{width:52px}
+.row.four h3{font-size:18px;margin:4px 0}
+.row.four p{font-size:14px;line-height:1.5}
+.path{position:relative;max-width:460px;width:100%;text-align:left;display:flex;flex-direction:column;gap:12px}
+.path::before{content:"";position:absolute;left:31px;top:30px;bottom:30px;border-left:3px dotted var(--heart);opacity:.6}
+.tl{position:relative;display:flex;align-items:center;gap:14px;background:var(--card);border:1.5px solid var(--line);border-radius:24px;padding:10px 16px 10px 10px}
+.tl .toon{width:44px;flex:none}
+.tl h3{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:19px;margin:0}
+.tl p{font-size:15px;color:var(--ink)}
+.c1{--cf:#f6b98a;--cd:#e39a5f}.c2{--cf:#d9dcf0;--cd:#aeb4d8}.c3{--cf:#fff3e4;--cd:#ecd6bb}
+.slide:nth-child(6){background:radial-gradient(circle at 20% 85%,var(--p3),transparent 50%),var(--p2)}
+.slide:nth-child(7){background:radial-gradient(circle at 50% 8%,var(--p4),transparent 55%),var(--p1)}
+.row.two{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));max-width:680px}
+.row.two .card{padding:20px 18px}.row.two .toon.sm{width:76px}.row.two p{font-size:15.500px;line-height:1.6}
+.dec2{position:absolute;height:auto;pointer-events:none}
+.path.nl::before{display:none}
+.slide:nth-child(8){background:radial-gradient(circle at 15% 12%,var(--p2),transparent 50%),var(--p3)}
+.slide:nth-child(9){background:radial-gradient(circle at 85% 88%,var(--p3),transparent 50%),var(--p4)}
+.slide:nth-child(10){background:radial-gradient(circle at 50% 0%,var(--p1),transparent 55%),var(--p5)}
+.slide:nth-child(7){background:radial-gradient(circle at 80% 15%,var(--p5),transparent 50%),var(--p1)}
+.nav{position:fixed;left:0;right:0;bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;justify-content:center;align-items:center;gap:16px;z-index:5}
+.nav button{border:1.5px solid var(--line);background:var(--card);color:var(--ink);width:44px;height:44px;border-radius:50%;font-size:20px;cursor:pointer;font-family:inherit}
+.nav button:focus-visible{outline:3px solid var(--heart);outline-offset:2px}
+.nav button:disabled{opacity:.35;cursor:default}
+.dots{display:flex;gap:8px}
+.dots i{width:9px;height:9px;border-radius:50%;background:var(--line);transition:.3s}
+.dots i.on{background:var(--heart);width:24px;border-radius:6px}
+.dots{gap:6px}.dots i{width:7px;height:7px}.dots i.on{width:18px}
+.slide:nth-child(11){background:radial-gradient(circle at 20% 90%,var(--p2),transparent 50%),var(--p3)}
+.slide:nth-child(12){background:radial-gradient(circle at 85% 10%,var(--p3),transparent 50%),var(--p1)}
+.slide:nth-child(13){background:radial-gradient(circle at 50% 8%,var(--p4),transparent 55%),var(--p1)}
+.slide:nth-child(14){background:radial-gradient(circle at 50% 0%,var(--p1),transparent 55%),var(--p5)}
+.slide:nth-child(15){background:radial-gradient(circle at 50% 0%,var(--p1),transparent 55%),var(--p5)}
+
+/* pink theme */
+:root{--ink:#5a2a44;--soft:#8a5473;--title:#c2417a;--card:rgba(255,255,255,.62);--line:rgba(240,105,154,.28);--heart:#f0699a;
+--p1:#ffe1ec;--p2:#ffcfe1;--p3:#ffeaf2;--p4:#fff0f6;--p5:#ffc6db;--bg:#fff4f8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#ffe8f1;--soft:#e9b9cf;--title:#ffb3d0;--card:rgba(255,255,255,.09);--line:rgba(255,150,190,.3);--heart:#ff8fb6;
+--p1:#4b2136;--p2:#5c2745;--p3:#3f1f36;--p4:#4e2536;--p5:#5e2944;--bg:#2b1522}}
+:root[data-theme="dark"]{--ink:#ffe8f1;--soft:#e9b9cf;--title:#ffb3d0;--card:rgba(255,255,255,.09);--line:rgba(255,150,190,.3);--heart:#ff8fb6;
+--p1:#4b2136;--p2:#5c2745;--p3:#3f1f36;--p4:#4e2536;--p5:#5e2944;--bg:#2b1522}
+h1,h2{color:var(--title)}
+.c2{--cf:#f6aecb;--cd:#e888b0}
+.nav button{border-color:var(--line)}
+.dec.lv{fill:#f6a8c8}.dec.mt{fill:#ffb8cf}
+.w{display:inline-block}
+.fx{position:fixed;inset:0;pointer-events:none;z-index:2;overflow:hidden}
+.fx .fh{position:absolute;bottom:-40px;opacity:0}
+.fx .blob{position:absolute;border-radius:50%;filter:blur(40px);opacity:.55;background:radial-gradient(circle,#ffb3cf,transparent 65%)}
+.fx .b1{width:60vmax;height:60vmax;left:-25vmax;top:-20vmax}
+.fx .b2{width:50vmax;height:50vmax;right:-20vmax;bottom:-20vmax;background:radial-gradient(circle,#ffd6e5,transparent 65%)}
+.burst{position:fixed;z-index:6;pointer-events:none;width:22px;height:22px;margin:-11px 0 0 -11px;fill:var(--heart)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .fx .blob{opacity:.18}}
+@media (prefers-reduced-motion:no-preference){
+.slide{transform:scale(.97);transition:opacity .6s,visibility .6s,transform .6s}
+.slide.on{transform:none}
+.slide.on .w{animation:word .8s cubic-bezier(.2,.9,.3,1.3) backwards;animation-delay:calc(.12s + var(--i)*.1s)}
+.slide.on .card,.slide.on .tl,.slide.on>.note,.slide.on>p,.slide.on>.toons{animation:pop .8s cubic-bezier(.2,.9,.3,1.25) backwards;animation-delay:var(--d,.4s)}
+.dec{animation:tw 3.2s ease-in-out infinite}
+.dec:nth-of-type(2){animation-delay:-1.1s}.dec:nth-of-type(3){animation-delay:-2.2s}
+.pulse,.toon.heart{animation:beat 1.6s ease-in-out infinite}
+.fx .fh{animation:rise var(--t,14s) linear infinite;animation-delay:var(--dl,0s)}
+.fx .b1{animation:drift 16s ease-in-out infinite alternate}
+.fx .b2{animation:drift 20s ease-in-out infinite alternate-reverse}
+.burst{animation:burst 1.5s ease-out forwards}
+.tl:hover,.card:hover{scale:1.03;transition:scale .25s}
+}
+@keyframes bob{50%{transform:translateY(-9px) rotate(2.500deg)}}
+@keyframes word{from{opacity:0;translate:0 26px;scale:.6;rotate:-6deg}}
+@keyframes pop{from{opacity:0;translate:0 30px;scale:.85}}
+@keyframes tw{50%{opacity:.95;scale:1.35}}
+@keyframes beat{0%,100%{scale:1}15%{scale:1.16}30%{scale:1}45%{scale:1.1}}
+@keyframes rise{0%{translate:0 0;opacity:0}10%{opacity:.6}90%{opacity:.6}100%{translate:var(--sx,30px) -115vh;opacity:0}}
+@keyframes drift{to{translate:8vmax 6vmax;scale:1.15}}
+@keyframes burst{0%{translate:0 0;scale:.4;opacity:1}100%{translate:var(--bx) var(--by);scale:1.5;opacity:0}}
+@media (max-width:560px){
+.row:not(.two){gap:10px}
+.row:not(.two) .card{display:grid;grid-template-columns:62px 1fr;column-gap:12px;align-items:center;text-align:left;padding:12px 14px;border-radius:22px}
+.row:not(.two) .card .toon.sm{grid-row:1/span2;width:62px;margin:0}
+.row:not(.two) .card h3{margin:0 0 2px;font-size:18px}
+.row:not(.two) .card p{font-size:14.500px;line-height:1.45}
+}
+.fx .fh{max-width:26px}
+@keyframes rise{0%{translate:0 0;opacity:0}10%{opacity:.4}90%{opacity:.4}100%{translate:var(--sx,30px) -115vh;opacity:0}}
+@media (max-width:560px){
+.row:not(.two) .card{grid-template-rows:auto auto}
+.row:not(.two) .card .toon.sm{grid-column:1;grid-row:1/3}
+.row:not(.two) .card h3{grid-column:2;grid-row:1;align-self:end}
+.row:not(.two) .card p{grid-column:2;grid-row:2;align-self:start}
+}
+.hug{width:min(80vw,340px);height:auto;display:block;margin:0 auto;overflow:visible}
+.hl,.hr,.tail{transform-box:view-box}
+.hl{transform-origin:78px 140px;transform:rotate(7deg)}
+.hr{transform-origin:162px 140px;transform:rotate(-7deg)}
+.t1{transform-origin:46px 132px}.t2{transform-origin:194px 132px}
+.hh{fill:var(--heart);opacity:.9}
+.slide:nth-child(16){background:radial-gradient(circle at 50% 0%,var(--p1),transparent 55%),var(--p5)}
+.slide:nth-child(15){background:radial-gradient(circle at 50% 100%,var(--p2),transparent 55%),var(--p1)}
+@media (prefers-reduced-motion:no-preference){
+.hl{animation:hugL 6s ease-in-out infinite}.hr{animation:hugR 6s ease-in-out infinite}
+.al{animation:hugL 6s ease-in-out infinite,armv 6s ease-in-out infinite}
+.ar{animation:hugR 6s ease-in-out infinite,armv 6s ease-in-out infinite}
+.t1{animation:wag1 1.2s ease-in-out infinite alternate}.t2{animation:wag2 1.2s ease-in-out infinite alternate}
+.hh{transform-box:fill-box;transform-origin:center;animation:hup 6s ease-in-out infinite}
+.h2{animation-delay:.35s}.h3{animation-delay:.7s}
+}
+@keyframes hugL{0%,8%{transform:translateX(-30px) rotate(-5deg)}35%,80%{transform:translateX(0) rotate(7deg)}42%,58%{transform:translateX(0) rotate(7deg) scale(1.05,.96)}50%,66%{transform:translateX(0) rotate(7deg) scale(1)}100%{transform:translateX(-30px) rotate(-5deg)}}
+@keyframes hugR{0%,8%{transform:translateX(30px) rotate(5deg)}35%,80%{transform:translateX(0) rotate(-7deg)}42%,58%{transform:translateX(0) rotate(-7deg) scale(1.05,.96)}50%,66%{transform:translateX(0) rotate(-7deg) scale(1)}100%{transform:translateX(30px) rotate(5deg)}}
+@keyframes armv{0%,28%{opacity:0}38%,78%{opacity:1}90%,100%{opacity:0}}
+@keyframes wag1{from{transform:rotate(-12deg)}to{transform:rotate(12deg)}}
+@keyframes wag2{from{transform:rotate(12deg)}to{transform:rotate(-12deg)}}
+@keyframes hup{0%,36%{opacity:0;transform:translateY(0) scale(.4)}46%{opacity:1}88%,100%{opacity:0;transform:translateY(-46px) scale(1.1)}}
+/* softer pink */
+:root{--ink:#6a3a52;--soft:#94677f;--title:#cf6a92;--card:rgba(255,255,255,.7);--line:rgba(238,150,182,.28);--heart:#f38fb0;
+--p1:#fff0f4;--p2:#ffe3ec;--p3:#fff5f8;--p4:#fff8fa;--p5:#ffdce7;--bg:#fff8fa}
+.c2{--cf:#f8c3d5;--cd:#eea3bd}
+.dec.lv{fill:#f8bfd4}.dec.mt{fill:#fdc9d9}
+.fx .blob{opacity:.4;background:radial-gradient(circle,#ffcfdd,transparent 65%)}
+.fx .b2{background:radial-gradient(circle,#ffe2ea,transparent 65%)}
+.dots i.on{background:#f38fb0}
+h1{font-family:'Dancing Script','Fraunces',cursive;font-weight:600;font-size:clamp(58px,14vw,104px);line-height:1.05}
+.eye{transform-box:fill-box;transform-origin:center}
+.env{position:fixed;inset:0;z-index:20;border:0;margin:0;padding:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;cursor:pointer;color:var(--soft);font-family:inherit;background:radial-gradient(circle at 50% 28%,var(--p2),transparent 62%),var(--p1);transition:opacity .6s}
+.env.gone{opacity:0;pointer-events:none}
+.env:focus-visible{outline:3px solid var(--heart);outline-offset:-6px}
+.ev{position:relative;width:min(80vw,330px);aspect-ratio:3/2;perspective:900px;filter:drop-shadow(0 14px 22px rgba(240,120,160,.28))}
+.ev>*{position:absolute}
+.ev .back{inset:0;background:#f7bfd2;border-radius:14px}
+.ev .letter{left:7%;right:7%;top:8%;bottom:8%;background:#fffafb;border-radius:10px;display:flex;align-items:center;justify-content:center;font:600 clamp(26px,8vw,38px) 'Dancing Script','Fraunces',cursive;color:#cf6a92;z-index:2;transition:transform .9s cubic-bezier(.3,.8,.3,1) .55s}
+.ev .front{inset:0;background:#fbd6e2;clip-path:polygon(0 100%,0 0,50% 64%,100% 0,100% 100%);border-radius:14px;z-index:3}
+.ev .flap{inset:0;background:#f4a9c3;clip-path:polygon(0 0,100% 0,50% 68%);transform-origin:50% 0;z-index:4}
+.ev .seal{left:50%;top:60%;width:15%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:#f0678f;display:grid;place-items:center;z-index:5;box-shadow:0 3px 8px rgba(200,60,110,.35)}
+.ev .seal svg{width:56%;height:56%;fill:#fff}
+.env.open .flap{animation:flapOpen .8s ease forwards}
+.env.open .letter{transform:translateY(-62%) scale(1.06)}
+.env.open .seal{animation:sealOut .4s ease forwards}
+.tap{font-family:'Caveat',cursive;font-size:28px}
+@keyframes flapOpen{0%{transform:rotateX(0);z-index:4}49%{z-index:4}50%{z-index:1}100%{transform:rotateX(180deg);z-index:1}}
+@keyframes sealOut{to{opacity:0;scale:.2}}
+@keyframes blink{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.08)}}
+@keyframes fadep{50%{opacity:.35}}
+@media (prefers-reduced-motion:no-preference){
+.eye{animation:blink 4.5s ease-in-out infinite}
+.env:not(.open) .ev{animation:bob 3s ease-in-out infinite}
+.env:not(.open) .seal{animation:beat 1.6s ease-in-out infinite}
+.env:not(.open) .tap{animation:fadep 2.2s ease-in-out infinite}
+}
+.env.open .tap{opacity:0!important;animation:none!important;transition:opacity .3s}
+.quote{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:clamp(19px,5vw,26px);line-height:1.65;max-width:none}
+.card:has(.quote){max-width:600px;padding:26px 24px}
+.slide:nth-child(13){background:radial-gradient(circle at 50% 0%,var(--p2),transparent 55%),var(--p4)}
+.slide:nth-child(17){background:radial-gradient(circle at 50% 0%,var(--p1),transparent 55%),var(--p5)}
+/* music mute button */
+.snd{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:12px;z-index:5;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-size:18px;line-height:1;cursor:pointer;padding:0;font-family:inherit}
+.snd:focus-visible{outline:3px solid var(--heart);outline-offset:2px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="h" viewBox="0 0 24 24"><path d="M12 21s-8-5.3-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.7-8 11-8 11z"/></symbol>
+<symbol id="s" viewBox="0 0 24 24"><path d="M12 1c1 6 5 10 11 11-6 1-10 5-11 11-1-6-5-10-11-11 6-1 10-5 11-11z"/></symbol>
+<symbol id="c" viewBox="0 0 64 40"><path d="M14 38a12 12 0 0 1-1-24 16 16 0 0 1 30-3 13 13 0 0 1 8 27z"/></symbol>
+<symbol id="face" viewBox="0 0 40 24"><circle class="eye" cx="10" cy="8" r="2.8" fill="#4a3550"/><circle class="eye" cx="30" cy="8" r="2.8" fill="#4a3550"/><path d="M15 13q5 6 10 0" fill="none" stroke="#4a3550" stroke-width="2" stroke-linecap="round"/><circle cx="4" cy="15" r="4" fill="#f7a8b8" opacity=".75"/><circle cx="36" cy="15" r="4" fill="#f7a8b8" opacity=".75"/></symbol>
+<symbol id="bear" viewBox="0 0 100 100"><circle cx="22" cy="24" r="14" fill="#f2b98a"/><circle cx="78" cy="24" r="14" fill="#f2b98a"/><circle cx="22" cy="24" r="7" fill="#f7a8b8"/><circle cx="78" cy="24" r="7" fill="#f7a8b8"/><circle cx="50" cy="56" r="40" fill="#f6c9a0"/><ellipse cx="50" cy="70" rx="16" ry="12" fill="#fde8d3"/><ellipse cx="50" cy="63" rx="5" ry="3.5" fill="#4a3550"/><use href="#face" x="30" y="44" width="40" height="24"/></symbol>
+<symbol id="bun" viewBox="0 0 100 100"><ellipse cx="34" cy="24" rx="10" ry="24" fill="#fff" stroke="#e3d3ee" stroke-width="2"/><ellipse cx="66" cy="24" rx="10" ry="24" fill="#fff" stroke="#e3d3ee" stroke-width="2"/><ellipse cx="34" cy="26" rx="4.5" ry="16" fill="#f7c4d2"/><ellipse cx="66" cy="26" rx="4.5" ry="16" fill="#f7c4d2"/><circle cx="50" cy="64" r="34" fill="#fff" stroke="#e3d3ee" stroke-width="2"/><path d="M46 62h8l-4 5z" fill="#f28aa5"/><use href="#face" x="30" y="50" width="40" height="24"/></symbol>
+<symbol id="kh" viewBox="0 0 24 24"><path d="M12 22s-9-5.8-9-12a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.200-9 12-9 12z" fill="#f28aa5"/><use href="#face" x="5.500" y="7.500" width="13" height="8"/></symbol>
+<symbol id="ks" viewBox="0 0 100 100"><path d="M50 5l14 29 31 4-23 22 6 31-28-15-28 15 6-31-23-22 31-4z" fill="#f7d774" stroke="#f0c14b" stroke-width="3" stroke-linejoin="round"/><use href="#face" x="30" y="40" width="40" height="24"/></symbol>
+<symbol id="kc" viewBox="0 0 64 40"><path d="M14 38a12 12 0 0 1-1-24 16 16 0 0 1 30-3 13 13 0 0 1 8 27z" fill="#fff" stroke="#d9c9ee" stroke-width="2"/><use href="#face" x="20" y="14" width="26" height="16"/></symbol>
+<symbol id="cat" viewBox="0 0 100 100"><path d="M16 46L20 8 46 26zM84 46L80 8 54 26z" fill="var(--cf)"/><path d="M24 34L26 18 38 27zM76 34L74 18 62 27z" fill="#f7a8b8"/><ellipse cx="50" cy="60" rx="40" ry="34" fill="var(--cf)"/><path d="M50 27v9M40 29l2 8M60 29l-2 8" stroke="var(--cd)" stroke-width="3.500" stroke-linecap="round"/><path d="M47 56h6l-3 3.500z" fill="#f28aa5"/><use href="#face" x="30" y="46" width="40" height="24"/><path d="M18 62L3 58M18 68L3 71M82 62L97 58M82 68L97 71" stroke="#4a3550" stroke-width="1.800" stroke-linecap="round" opacity=".45"/></symbol>
+<symbol id="pw" viewBox="0 0 24 24"><ellipse cx="12" cy="16" rx="6" ry="5"/><circle cx="5" cy="10" r="2.600"/><circle cx="9.500" cy="5.500" r="2.600"/><circle cx="14.500" cy="5.500" r="2.600"/><circle cx="19" cy="10" r="2.600"/></symbol>
+<symbol id="flw" viewBox="0 0 24 24"><g fill="#f7a8b8"><circle cx="12" cy="5.500" r="4.500"/><circle cx="18.500" cy="10.500" r="4.500"/><circle cx="16" cy="18" r="4.500"/><circle cx="8" cy="18" r="4.500"/><circle cx="5.500" cy="10.500" r="4.500"/></g><circle cx="12" cy="12" r="4" fill="#f7d774"/></symbol>
+<symbol id="km" viewBox="0 0 24 24"><path d="M16 2a10 10 0 1 0 6 17A8.500 8.500 0 0 1 16 2z" fill="#f7d774"/><use href="#face" x="4" y="9" width="12" height="7.200"/></symbol>
+<symbol id="catf" viewBox="0 0 100 100"><use href="#cat"/><use href="#flw" x="60" y="62" width="38" height="38"/></symbol>
+<symbol id="catb" viewBox="0 0 100 100"><use href="#cat"/><path d="M66 22l10-8v16zM86 22L76 14v16z" fill="#f28aa5"/><circle cx="76" cy="22" r="4" fill="#f9b7c8"/></symbol>
+<symbol id="catz" viewBox="0 0 100 100"><use href="#cat"/><circle cx="40" cy="54" r="4.500" fill="var(--cf)"/><circle cx="60" cy="54" r="4.500" fill="var(--cf)"/><path d="M35.500 54q4.500 5 9 0M55.500 54q4.500 5 9 0" fill="none" stroke="#4a3550" stroke-width="2" stroke-linecap="round"/><text x="80" y="24" font-size="15" fill="#b9a2e6" font-family="Georgia,serif">z</text><text x="89" y="12" font-size="11" fill="#b9a2e6" font-family="Georgia,serif">z</text></symbol>
+</svg>
+
+<main class="deck" id="deck">
+<section class="slide on" aria-label="Slide 1"><svg class="dec" style="top:2.5%;left:5%;width:26px;height:26px;transform:rotate(-20deg)"><use href="#pw"/></svg><svg class="dec lv" style="bottom:22%;right:10%;width:24px;height:24px;transform:rotate(15deg)"><use href="#pw"/></svg><div class="toons"><svg class="hug" viewBox="0 0 240 150" role="img" aria-label="Two cats hugging"><g class="hl c1"><path class="tail t1" d="M46 132q-30 4-24-24" fill="none" stroke="var(--cf)" stroke-width="9" stroke-linecap="round"/><ellipse cx="78" cy="118" rx="34" ry="28" fill="var(--cf)"/><use href="#cat" x="33" y="22" width="90" height="90"/></g><g class="hr c2"><path class="tail t2" d="M194 132q30 4 24-24" fill="none" stroke="var(--cf)" stroke-width="9" stroke-linecap="round"/><ellipse cx="162" cy="118" rx="34" ry="28" fill="var(--cf)"/><use href="#cat" x="117" y="22" width="90" height="90"/></g><g class="hl al c1"><ellipse cx="130" cy="112" rx="24" ry="9" transform="rotate(-8 130 112)" fill="var(--cf)"/><circle cx="153" cy="106" r="8" fill="var(--cf)"/><path d="M151 103v5M155 103v5" stroke="var(--cd)" stroke-width="1.500" stroke-linecap="round"/></g><g class="hr ar c2"><ellipse cx="110" cy="120" rx="24" ry="9" transform="rotate(8 110 120)" fill="var(--cf)"/><circle cx="87" cy="126" r="8" fill="var(--cf)"/><path d="M85 123v5M89 123v5" stroke="var(--cd)" stroke-width="1.500" stroke-linecap="round"/></g><use class="hh" href="#h" x="111" y="30" width="18" height="18"/><use class="hh h2" href="#h" x="98" y="34" width="12" height="12"/><use class="hh h3" href="#h" x="131" y="34" width="12" height="12"/></svg></div><h1>Dear Zahra,</h1><p class="note">I owe you an apology, and a lifetime of promises.</p><svg class="dec2 bob" style="top:2%;right:4%;width:44px" viewBox="0 0 24 24"><use href="#kh"/></svg></section>
+<section class="slide" aria-label="Slide 2"><svg class="dec" style="top:2.5%;left:5%;width:26px;height:26px;transform:rotate(-20deg)"><use href="#pw"/></svg><svg class="dec lv" style="bottom:22%;right:10%;width:24px;height:24px;transform:rotate(15deg)"><use href="#pw"/></svg><h2>I’m so sorry for...</h2><div class="row"><div class="card"><svg class="toon sm c1" viewBox="0 0 100 100"><use href="#cat"/></svg><h3>The mistakes</h3><p>Every mistake that hurt you. I see it clearly now, and I’m so sorry.</p></div><div class="card"><svg class="toon sm c2" viewBox="0 0 100 100"><use href="#cat"/></svg><h3>The words</h3><p>Every word you didn’t like. You deserved softer ones, and you’ll have them from now on.</p></div><div class="card"><svg class="toon sm c3" viewBox="0 0 100 100"><use href="#cat"/></svg><h3>Everything</h3><p>All the rest, big and small. From today, I’ll carry my share and more.</p></div></div><p class="note" style="margin-top:14px">but sorry isn’t enough, so here are my promises for our future</p><svg class="dec2 bob d" style="bottom:12%;left:4%;width:44px" viewBox="0 0 24 24"><use href="#km"/></svg></section>
+<section class="slide" aria-label="Slide 3"><svg class="dec" style="top:2.5%;left:5%;width:26px;height:26px;transform:rotate(-20deg)"><use href="#pw"/></svg><svg class="dec lv" style="bottom:22%;right:10%;width:24px;height:24px;transform:rotate(15deg)"><use href="#pw"/></svg><h2>What I understand now</h2><div class="row two"><div class="card"><svg class="toon sm c2" viewBox="0 0 100 100"><use href="#catb"/></svg><h3>I know it hurt</h3><p>I know my words and mistakes hurt you, and I’ll spend my days healing that.</p></div><div class="card"><svg class="toon sm c1" viewBox="0 0 100 100"><use href="#catf"/></svg><h3>I know trust takes time</h3><p>Trust grows slowly, so I’ll earn it back with every day I keep my word.</p></div></div><svg class="dec2 bob" style="top:2%;left:4%;width:44px" viewBox="0 0 100 100"><use href="#ks"/></svg></section>
+<section class="slide" aria-label="Slide 4"><svg class="dec" style="top:2.5%;left:5%;width:26px;height:26px;transform:rotate(-20deg)"><use href="#pw"/></svg><svg class="dec lv" style="bottom:22%;right:10%;width:24px;height:24px;transform:rotate(15deg)"><use href="#pw"/></svg><h2>Promise one: I will change</h2><div class="row two"><div class="card"><svg class="toon sm c1" viewBox="0 0 100 100"><use href="#cat"/></svg><h3>Change myself</h3><p>I won’t say sorry and then repeat it. From today, I’ll change the parts of me that hurt you, one day at a time.</p></div><div class="card"><svg class="toon sm c2" viewBox="0 0 100 100"><use href="#cat"/></svg><h3>A better me</h3><p>Every year, I’ll be more patient, more thoughtful and more responsible than the year before.</p></div></div><svg class="dec2 bob d" style="bottom:12%;right:4%;width:44px" viewBox="0 0 24 24"><use href="#km"/></svg></section>
+<section class="slide" aria-label="Slide 5"><svg class="dec" style="top:2.5%;left:5%;width:26px;height:26px;transform:rotate(-20deg)"><use href="#pw"/></svg><svg class="dec lv" style="bottom:22%;right:10%;width:24px;height:24px;transform:rotate(15deg)"><use href="#pw"/></svg><h2>Promise two: I will listen</h2><div class="row two"><div class="card"><svg class="toon sm c3" viewBox="0 0 100 100"><use href="#cat"/></svg><h3>Listen first</h3><p>When you talk, I’ll put everything down and listen. I’ll always try to understand your heart before I answer.</p></div><div class="card"><svg class="toon sm c1" viewBox="0 0 100 100"><use href="#cat"/></svg><h3>Softer words</h3><p>When I’m upset, I’ll pause and choose kind words. For the rest of our days, you’ll be safe with me.</p></div></div><svg class="dec2 bob" style="top:2%;right:4%;width:44px" viewBox="0 0 24 24"><use href="#kh"/></svg></section>
+<section class="slide" aria-label="Slide 6"><svg class="dec" style="top:2.5%;left:5%;width:26px;height:26px;transform:rotate(-20deg)"><use href="#pw"/></svg><svg class="dec lv" style="bottom:22%;right:10%;width:24px;height:24px;transform:rotate(15deg)"><use href="#pw"/></svg><h2>Promise three: I will take care of you</h2><div class="row two"><div class="card"><svg class="toon sm c2" viewBox="0 0 100 100"><use href="#cat"/></svg><h3>The way you need</h3><p>Not the way I think is right, but the way you need. I’ll notice the small things and ask when I’m unsure.</p></div><div class="card"><svg class="toon sm c3" viewBox="0 0 100 100"><use href="#cat"/></svg><h3>Your safe place</h3><p>I want to be where your worries, happy news and bad days can land softly. You never have to hide from me.</p></div></div><svg class="dec2 bob d" style="bottom:12%;left:4%;width:44px" viewBox="0 0 100 100"><use href="#ks"/></svg></section>
+<section class="slide" aria-label="Slide 7"><svg class="dec" style="top:2.5%;left:5%;width:26px;height:26px;transform:rotate(-20deg)"><use href="#pw"/></svg><svg class="dec lv" style="bottom:22%;right:10%;width:24px;height:24px;transform:rotate(15deg)"><use href="#pw"/></svg><h2>Promise four: I will be worthy</h2><div class="row two"><div class="card"><svg class="toon sm " viewBox="0 0 24 24"><use href="#kh"/></svg><h3>Your family’s hopes</h3><p>I promise to fulfil every criteria your bhaiya, apia, ammu and everyone hope for, and earn their trust with my actions.</p></div><div class="card"><svg class="toon sm c1" viewBox="0 0 100 100"><use href="#cat"/></svg><h3>The man you wanted</h3><p>I’ll become the man you always wanted: dependable, respectful, kind, and there in good times and hard ones.</p></div></div><svg class="dec2 bob" style="top:2%;left:4%;width:60px" viewBox="0 0 64 40"><use href="#kc"/></svg></section>
+<section class="slide" aria-label="Slide 8"><svg class="dec" style="top:2.5%;left:5%;width:26px;height:26px;transform:rotate(-20deg)"><use href="#pw"/></svg><svg class="dec lv" style="bottom:22%;right:10%;width:24px;height:24px;transform:rotate(15deg)"><use href="#pw"/></svg><h2>The little promises</h2><div class="path nl"><div class="tl"><svg class="toon c1" viewBox="0 0 100 100"><use href="#catb"/></svg><div><h3>Soft mornings</h3><p>I’ll start our days gently and end them kindly.</p></div></div><div class="tl"><svg class="toon c3" viewBox="0 0 100 100"><use href="#cat"/></svg><div><h3>Remember the small things</h3><p>What you love, what worries you, what you tell me.</p></div></div><div class="tl"><svg class="toon c2" viewBox="0 0 100 100"><use href="#catf"/></svg><div><h3>Talk, don’t go quiet</h3><p>When something is wrong, I’ll talk it out with you.</p></div></div><div class="tl"><svg class="toon c1" viewBox="0 0 100 100"><use href="#cat"/></svg><div><h3>Say it often</h3><p>Thank you, I’m proud of you, I’m grateful for you.</p></div></div></div><svg class="dec2 bob d" style="bottom:12%;right:4%;width:44px" viewBox="0 0 24 24"><use href="#kh"/></svg></section>
+<section class="slide" aria-label="Slide 9"><svg class="dec" style="top:2.5%;left:5%;width:26px;height:26px;transform:rotate(-20deg)"><use href="#pw"/></svg><svg class="dec lv" style="bottom:22%;right:10%;width:24px;height:24px;transform:rotate(15deg)"><use href="#pw"/></svg><div class="toons"><svg class="toon bob  c1" viewBox="0 0 100 100"><use href="#catz"/></svg><svg class="toon bob d c2" viewBox="0 0 100 100"><use href="#catz"/></svg></div><h2>Just relax, my Zahra</h2><div class="card"><p>Take a deep breath. Whatever comes next, we’ll walk through it together, and I’ll be by your side.</p></div><p class="note" style="margin-top:14px">shob thik hoye jabe</p><svg class="dec2 bob" style="top:2%;right:4%;width:44px" viewBox="0 0 24 24"><use href="#km"/></svg></section>
+<section class="slide" aria-label="Slide 10"><svg class="dec" style="top:2.5%;left:5%;width:26px;height:26px;transform:rotate(-20deg)"><use href="#pw"/></svg><svg class="dec lv" style="bottom:22%;right:10%;width:24px;height:24px;transform:rotate(15deg)"><use href="#pw"/></svg><h2>Please don’t overthink</h2><p class="note">kono bishoy niye kokkhono overthink korba naaa</p><div class="row two"><div class="card"><svg class="toon sm c2" viewBox="0 0 100 100"><use href="#catb"/></svg><h3>Let your mind rest</h3><p>Leave the worrying to me for a while. I’ll always do my part.</p></div><div class="card"><svg class="toon sm c1" viewBox="0 0 100 100"><use href="#catf"/></svg><h3>No guessing</h3><p>I’ll be honest and clear, so you never have to guess or read between the lines.</p></div></div><svg class="dec2 bob d" style="bottom:12%;left:4%;width:44px" viewBox="0 0 100 100"><use href="#ks"/></svg></section>
+<section class="slide" aria-label="Slide 11"><svg class="dec" style="top:2.5%;left:5%;width:26px;height:26px;transform:rotate(-20deg)"><use href="#pw"/></svg><svg class="dec lv" style="bottom:22%;right:10%;width:24px;height:24px;transform:rotate(15deg)"><use href="#pw"/></svg><h2>No pressure on yourself</h2><p class="note">nijer upor pressure diba naaa</p><div class="row two"><div class="card"><svg class="toon sm c3" viewBox="0 0 100 100"><use href="#catz"/></svg><h3>Go at your pace</h3><p>Feel what you feel. I’ll walk beside you and never rush you.</p></div><div class="card"><svg class="toon sm c2" viewBox="0 0 100 100"><use href="#catb"/></svg><h3>You are enough</h3><p>You don’t have to be perfect, or strong all the time. I care about you exactly as you are.</p></div></div><svg class="dec2 bob" style="top:2%;left:4%;width:44px" viewBox="0 0 24 24"><use href="#km"/></svg></section>
+<section class="slide" aria-label="Slide 12"><svg class="dec" style="top:2.5%;left:5%;width:26px;height:26px;transform:rotate(-20deg)"><use href="#pw"/></svg><svg class="dec lv" style="bottom:22%;right:10%;width:24px;height:24px;transform:rotate(15deg)"><use href="#pw"/></svg><h2>You can trust me, your Saadat</h2><div class="row"><div class="card"><svg class="toon sm c1" viewBox="0 0 100 100"><use href="#catf"/></svg><h3>My words</h3><p>What I say, I mean. I’ll never say something just to make a moment easier.</p></div><div class="card"><svg class="toon sm c2" viewBox="0 0 100 100"><use href="#catb"/></svg><h3>My promises</h3><p>I will keep every single promise in this letter. Hold me to each one.</p></div><div class="card"><svg class="toon sm c3" viewBox="0 0 100 100"><use href="#cat"/></svg><h3>My actions</h3><p>My days will prove it, so trust grows back softer and stronger.</p></div></div><p class="note" style="margin-top:14px">I will keep all my promises, always</p><svg class="dec2 bob d" style="bottom:12%;right:4%;width:44px" viewBox="0 0 24 24"><use href="#kh"/></svg></section>
+<section class="slide" aria-label="Slide 13"><svg class="dec" style="top:2.5%;left:5%;width:26px;height:26px;transform:rotate(-20deg)"><use href="#pw"/></svg><svg class="dec lv" style="bottom:22%;right:10%;width:24px;height:24px;transform:rotate(15deg)"><use href="#pw"/></svg><div class="toons"><svg class="toon bob c1" viewBox="0 0 100 100"><use href="#catf"/></svg><svg class="toon heart bob d" viewBox="0 0 24 24"><use href="#km"/></svg><svg class="toon bob d c2" viewBox="0 0 100 100"><use href="#catb"/></svg></div><h2>My precious gift</h2><div class="card"><p class="quote">You are one of the most precious gifts Allah has ever blessed me with. I genuinely feel grateful to Him for bringing you into my life.</p></div><svg class="dec2 bob" style="top:2%;right:4%;width:44px" viewBox="0 0 24 24"><use href="#km"/></svg></section>
+<section class="slide" aria-label="Slide 14"><svg class="dec" style="top:2.5%;left:5%;width:26px;height:26px;transform:rotate(-20deg)"><use href="#pw"/></svg><svg class="dec lv" style="bottom:22%;right:10%;width:24px;height:24px;transform:rotate(15deg)"><use href="#pw"/></svg><h2>Our future, my Zahra</h2><div class="path nl"><div class="tl"><svg class="toon c1" viewBox="0 0 100 100"><use href="#catb"/></svg><div><h3>Quiet evenings</h3><p>Cozy nights, chai and stories, and you feeling completely safe.</p></div></div><div class="tl"><svg class="toon c2" viewBox="0 0 100 100"><use href="#cat"/></svg><div><h3>Adventures</h3><p>New places, silly photos, and laughing until it hurts.</p></div></div><div class="tl"><svg class="toon c3" viewBox="0 0 100 100"><use href="#catf"/></svg><div><h3>A home with cats</h3><p>A little home full of love, and yes, plenty of cats.</p></div></div><div class="tl"><svg class="toon c1" viewBox="0 0 100 100"><use href="#cat"/></svg><div><h3>Growing old together</h3><p>Me, still keeping my promises when we’re old and grey.</p></div></div></div><svg class="dec2 bob" style="top:2%;right:4%;width:44px" viewBox="0 0 100 100"><use href="#ks"/></svg></section>
+<section class="slide" aria-label="Slide 15"><svg class="dec" style="top:2.5%;left:5%;width:26px;height:26px;transform:rotate(-20deg)"><use href="#pw"/></svg><svg class="dec lv" style="bottom:22%;right:10%;width:24px;height:24px;transform:rotate(15deg)"><use href="#pw"/></svg><h2>Our tomorrow</h2><div class="path"><div class="tl"><svg class="toon c1" viewBox="0 0 100 100"><use href="#cat"/></svg><div><h3>Today</h3><p>I say sorry, and I mean every word.</p></div></div><div class="tl"><svg class="toon c2" viewBox="0 0 100 100"><use href="#cat"/></svg><div><h3>Every day</h3><p>I show it through small, kind things.</p></div></div><div class="tl"><svg class="toon c3" viewBox="0 0 100 100"><use href="#cat"/></svg><div><h3>Every year</h3><p>I keep growing, and I keep choosing you with patience and care.</p></div></div><div class="tl"><svg class="toon" viewBox="0 0 24 24"><use href="#kh"/></svg><div><h3>Always</h3><p>I stay the man you always wanted, and love you more every day.</p></div></div></div><p class="note" style="margin-top:14px">Every promise, kept. That is my promise.</p><svg class="dec2 bob d" style="bottom:12%;left:4%;width:60px" viewBox="0 0 64 40"><use href="#kc"/></svg></section>
+<section class="slide" aria-label="Slide 16"><svg class="dec" style="top:2.5%;left:5%;width:26px;height:26px;transform:rotate(-20deg)"><use href="#pw"/></svg><svg class="dec lv" style="bottom:22%;right:10%;width:24px;height:24px;transform:rotate(15deg)"><use href="#pw"/></svg><div class="toons"><svg class="hug" viewBox="0 0 240 150" role="img" aria-label="Two cats hugging"><g class="hl c1"><path class="tail t1" d="M46 132q-30 4-24-24" fill="none" stroke="var(--cf)" stroke-width="9" stroke-linecap="round"/><ellipse cx="78" cy="118" rx="34" ry="28" fill="var(--cf)"/><use href="#cat" x="33" y="22" width="90" height="90"/></g><g class="hr c2"><path class="tail t2" d="M194 132q30 4 24-24" fill="none" stroke="var(--cf)" stroke-width="9" stroke-linecap="round"/><ellipse cx="162" cy="118" rx="34" ry="28" fill="var(--cf)"/><use href="#cat" x="117" y="22" width="90" height="90"/></g><g class="hl al c1"><ellipse cx="130" cy="112" rx="24" ry="9" transform="rotate(-8 130 112)" fill="var(--cf)"/><circle cx="153" cy="106" r="8" fill="var(--cf)"/><path d="M151 103v5M155 103v5" stroke="var(--cd)" stroke-width="1.500" stroke-linecap="round"/></g><g class="hr ar c2"><ellipse cx="110" cy="120" rx="24" ry="9" transform="rotate(8 110 120)" fill="var(--cf)"/><circle cx="87" cy="126" r="8" fill="var(--cf)"/><path d="M85 123v5M89 123v5" stroke="var(--cd)" stroke-width="1.500" stroke-linecap="round"/></g><use class="hh" href="#h" x="111" y="30" width="18" height="18"/><use class="hh h2" href="#h" x="98" y="34" width="12" height="12"/><use class="hh h3" href="#h" x="131" y="34" width="12" height="12"/></svg></div><h2>Sending you a big hug</h2><p class="note">a warm, safe, forever kind of hug</p><svg class="dec2 bob" style="top:2%;right:4%;width:44px" viewBox="0 0 24 24"><use href="#kh"/></svg></section>
+<section class="slide" aria-label="Slide 17"><svg class="dec" style="top:2.5%;left:5%;width:26px;height:26px;transform:rotate(-20deg)"><use href="#pw"/></svg><svg class="dec lv" style="bottom:22%;right:10%;width:24px;height:24px;transform:rotate(15deg)"><use href="#pw"/></svg><div class="toons"><svg class="toon bob  c1" viewBox="0 0 100 100"><use href="#catf"/></svg><svg class="toon bob d c2" viewBox="0 0 100 100"><use href="#catb"/></svg></div><h2>Will you forgive me, Zahra?</h2><div class="card"><p>I’ll be here, today and in every tomorrow, keeping every promise I made to you.</p></div><p class="note" style="margin-top:14px">Yours, always, Saadat</p><svg class="dec2 bob" style="top:2%;left:4%;width:44px" viewBox="0 0 24 24"><use href="#kh"/></svg></section>
+</main>
+
+<button class="env" id="env" aria-label="Open the letter for Zahra"><div class="ev"><div class="back"></div><div class="letter">Dear Zahra,</div><div class="front"></div><div class="flap"></div><div class="seal"><svg viewBox="0 0 24 24"><use href="#h"/></svg></div></div><span class="tap">a letter for you. tap to open</span></button>
+<nav class="nav" aria-label="Slides">
+  <button id="prev" aria-label="Previous slide">&#8592;</button>
+  <div class="dots" id="dots"></div>
+  <button id="next" aria-label="Next slide">&#8594;</button>
+</nav>
+
+<!-- background music: keep music.mp3 in the same folder as index.html -->
+<audio id="bgm" src="music.mp3" loop preload="auto"></audio>
+<button class="snd" id="snd" aria-label="Mute music" title="Music on/off">&#128266;</button>
+
+<script>
+(function(){
+  var s=[].slice.call(document.querySelectorAll('.slide')),i=0,
+      d=document.getElementById('dots'),p=document.getElementById('prev'),n=document.getElementById('next');
+  s.forEach(function(){d.appendChild(document.createElement('i'))});
+  function go(k){
+    i=Math.max(0,Math.min(s.length-1,k));
+    s.forEach(function(e,j){e.classList.toggle('on',j===i)});
+    [].forEach.call(d.children,function(e,j){e.classList.toggle('on',j===i)});
+    p.disabled=i===0;n.disabled=i===s.length-1;
+  }
+  p.onclick=function(){go(i-1)};n.onclick=function(){go(i+1)};
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key===' ')go(i+1);
+    if(e.key==='ArrowLeft')go(i-1);
+  });
+  var x=null;
+  document.addEventListener('touchstart',function(e){x=e.touches[0].clientX},{passive:true});
+  document.addEventListener('touchend',function(e){
+    if(x===null)return;var dx=e.changedTouches[0].clientX-x;
+    if(Math.abs(dx)>50)go(i+(dx<0?1:-1));x=null;
+  });
+  go(0);
+})();
+</script>
+<script>
+(function(){
+  var R=Math.random,rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  slides.forEach(function(s){
+    [].forEach.call(s.querySelectorAll('h1,h2'),function(e){
+      e.innerHTML=e.textContent.split(' ').map(function(w,i){return '<span class="w" style="--i:'+i+'">'+w+'</span>'}).join(' ');
+    });
+    var j=0;
+    [].forEach.call(s.children,function(c){
+      if(/dec/.test(c.getAttribute('class')||'')||/^H/.test(c.tagName))return;
+      if(/row|path/.test(c.className)){
+        [].forEach.call(c.children,function(k,n){k.style.setProperty('--d',(.5+n*.18)+'s')});
+      }else{c.style.setProperty('--d',(.45+j*.15)+'s');j++}
+    });
+  });
+  var fx=document.createElement('div');fx.className='fx';fx.setAttribute('aria-hidden','true');
+  fx.innerHTML='<i class="blob b1"></i><i class="blob b2"></i>';
+  var cols=['#f59ab7','#f9b3c9','#fcc7d6','#f8bcd0','#f3a0bb'];
+  if(!rm)for(var i=0;i<16;i++){
+    var sz=10+R()*16,e=document.createElement('span');e.className='fh';
+    e.style.cssText='left:'+(R()*96)+'%;--t:'+(10+R()*10)+'s;--dl:-'+(R()*14)+'s;--sx:'+(R()*80-40)+'px;width:'+sz+'px;height:'+sz+'px;fill:'+cols[i%5];
+    e.innerHTML='<svg viewBox="0 0 24 24" width="100%" height="100%" fill="currentColor" style="fill:inherit"><use href="#'+(i%4==3?'s':'h')+'"/></svg>';
+    fx.appendChild(e);
+  }
+  document.body.appendChild(fx);
+  function burst(x,y,n){
+    if(rm)return;
+    for(var i=0;i<n;i++){
+      var b=document.createElementNS('http://www.w3.org/2000/svg','svg');
+      b.setAttribute('viewBox','0 0 24 24');b.setAttribute('class','burst');
+      b.style.left=x+'px';b.style.top=y+'px';
+      b.style.setProperty('--bx',(R()*140-70)+'px');b.style.setProperty('--by',(-60-R()*120)+'px');
+      b.style.fill=cols[i%5];
+      b.innerHTML='<use href="#h"/>';document.body.appendChild(b);
+      setTimeout(function(el){el.remove()},1600,b);
+    }
+  }
+  document.addEventListener('click',function(e){if(!e.target.closest('button'))burst(e.clientX,e.clientY,6)});
+  new MutationObserver(function(m){
+    m.forEach(function(r){if(r.target.classList.contains('on')&&r.oldValue&&r.oldValue.indexOf('on')<0)burst(innerWidth/2,innerHeight-60,8)});
+  }).observe(document.getElementById('deck'),{attributes:true,attributeOldValue:true,attributeFilter:['class'],subtree:true});
+})();
+</script>
+<script>
+(function(){
+  var env=document.getElementById('env'),rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var bgm=document.getElementById('bgm'),snd=document.getElementById('snd'),TARGET=.5;
+  function startMusic(){
+    try{
+      bgm.volume=0;
+      var pr=bgm.play();
+      if(pr&&pr.catch)pr.catch(function(){});
+      var v=0,t=setInterval(function(){
+        v=Math.min(TARGET,v+.02);bgm.volume=v;
+        if(v>=TARGET)clearInterval(t);
+      },120);
+    }catch(err){}
+  }
+  snd.addEventListener('click',function(){
+    if(bgm.paused&&!bgm.muted){startMusic();return}
+    bgm.muted=!bgm.muted;
+    snd.innerHTML=bgm.muted?'&#128263;':'&#128266;';
+    snd.setAttribute('aria-label',bgm.muted?'Unmute music':'Mute music');
+  });
+  function open(){
+    if(!env||env.classList.contains('open'))return;
+    env.classList.add('open');
+    startMusic();
+    setTimeout(function(){
+      env.classList.add('gone');
+      var s=document.querySelector('.slide');
+      s.classList.remove('on');void s.offsetWidth;s.classList.add('on');
+      setTimeout(function(){env.remove();env=null},650);
+    },rm?250:2000);
+  }
+  env.addEventListener('click',open);
+  function block(e){if(env){e.stopImmediatePropagation()}}
+  document.addEventListener('keydown',function(e){if(env){if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}e.stopImmediatePropagation()}},true);
+  document.addEventListener('touchstart',block,{capture:true,passive:true});
+  document.addEventListener('touchend',block,{capture:true,passive:true});
+})();
+</script>
+</body>
+</html>
